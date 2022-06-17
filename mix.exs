@@ -7,7 +7,9 @@ defmodule PeriscopeTester.MixProject do
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package(),
+      description: description()
     ]
   end
 
@@ -24,6 +26,23 @@ defmodule PeriscopeTester.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:periscope, ">= 0.0.0"},
       {:periscope_test_app, path: "./priv/periscope_test_app", only: [:test, :dev]}
+    ]
+  end
+
+  defp description do
+    """
+    Example repo for embedding a Phoenix app for testing in a Hex package
+    """
+  end
+
+  defp package do
+    [
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["m. simon borg"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/msimonborg/periscope_tester"
+      }
     ]
   end
 end
